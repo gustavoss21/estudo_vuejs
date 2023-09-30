@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='vue.js'></script>
+</head>
+<body>
+    
+    <div id="show">
+        teste do vue
+        {{ mensagem }}
+        {{ somar() }}  
+        {{ sub() }}  
+
+    </div>
+
+    <script>
+        const vm = new Vue(
+            {
+                el: '#show',
+                data: {
+                    mensagem: 'primeiro template com vue',
+                    range: [1,2,3,4,5]
+                },
+
+                methods: {
+                    somar,
+
+                    sub: function total(){
+                        let total = 0
+                        
+                        this.range.forEach(element => {
+                            total += element;
+                        });
+
+                        return total
+                    }
+                }
+            }
+        )
+        function somar(){
+            return 5+5
+        }
+    </script>
+</body>
+</html>
