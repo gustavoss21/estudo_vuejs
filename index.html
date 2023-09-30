@@ -11,8 +11,10 @@
 <body>
     
     <div id="show">
-        <input type="checkbox" name="" id="" :checked="check">
+        <input type="checkbox" :class="check ? 'checked':''" name="" id="" :checked="check">
         <input type="button" :value="btn_name">
+        <span>{{valor1 + valor2}}</span><br>
+        <span>{{func(valor1)}}</span>
     </div>
 
     <script>
@@ -21,7 +23,12 @@
                 el: '#show',
                 data: {
                     btn_name: 'salvar',
-                    check: 'true'
+                    check: 'true',
+                valor1: 10,
+                valor2:5,
+                func: function teste(valor1){
+                    return valor1
+                }
                 }
             }
         )
