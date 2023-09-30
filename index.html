@@ -11,10 +11,7 @@
 <body>
     
     <div id="show">
-        <input type="checkbox" :class="check ? 'checked':''" name="" id="" :checked="check">
-        <input type="button" :value="btn_name">
-        <span>{{valor1 + valor2}}</span><br>
-        <span>{{func(valor1)}}</span>
+        <input type="button" @click="messageAlert()" :value="btn_name">
     </div>
 
     <script>
@@ -23,12 +20,7 @@
                 el: '#show',
                 data: {
                     btn_name: 'salvar',
-                    check: 'true',
-                valor1: 10,
-                valor2:5,
-                func: function teste(valor1){
-                    return valor1
-                }
+                    messageAlert: function messageAlert(){alert('teste de alerta')}
                 }
             }
         )
