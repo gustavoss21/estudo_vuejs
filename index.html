@@ -11,11 +11,8 @@
 <body>
     
     <div id="show">
-        teste do vue
-        {{ mensagem }}
-        {{ somar() }}  
-        {{ sub() }}  
-
+        <input type="checkbox" name="" id="" v-bind:checked="check">
+        <input type="button" v-bind:value="btn_name">
     </div>
 
     <script>
@@ -23,22 +20,8 @@
             {
                 el: '#show',
                 data: {
-                    mensagem: 'primeiro template com vue',
-                    range: [1,2,3,4,5]
-                },
-
-                methods: {
-                    somar,
-
-                    sub: function total(){
-                        let total = 0
-                        
-                        this.range.forEach(element => {
-                            total += element;
-                        });
-
-                        return total
-                    }
+                    btn_name: 'salvar',
+                    check: 'true'
                 }
             }
         )
