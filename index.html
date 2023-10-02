@@ -9,9 +9,16 @@
     <script src='vue.js'></script>
 </head>
 <body>
-    
     <div id="show">
-        <input type="button" @click="messageAlert()" :value="btn_name">
+            <div style="border: 1px solid black; width: 300px; height: 100px;">
+        cor: {{cor}} <br>
+        coordenada x: {{x}} <br>
+        coordenada y: {{y}} <br>
+    </div>
+    <hr>
+    <div @click="mudarcor('verde')" style="border: 1px solid black; width: 100px; height: 100px; display: inline-block;"></div>
+    <div @mouseover="mudarcor('amarelo')" style="border: 1px solid black; width: 100px; height: 100px;display: inline-block;"></div>
+    <div @mousemove="posicao($event)" style="border: 1px solid black; width: 100px; height: 100px;display: inline-block;"></div>
     </div>
 
     <script>
@@ -19,14 +26,24 @@
             {
                 el: '#show',
                 data: {
-                    btn_name: 'salvar',
-                    messageAlert: function messageAlert(){alert('teste de alerta')}
+                   x: 0,
+                   y: 0,
+                   cor: 'branca'
+                },
+
+                methods:{
+
+                   mudarcor(cor){
+                        this.cor = cor;
+                   },
+
+                   posicao(e){
+                        this.x = e.clientX;
+                        this.y = e.clientY;
+                   }
                 }
             }
         )
-        function somar(){
-            return 5+5
-        }
     </script>
 </body>
 </html>
