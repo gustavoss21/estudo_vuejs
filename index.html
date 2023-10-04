@@ -10,37 +10,33 @@
 </head>
 <body>
     <div id="show">
-            <div style="border: 1px solid black; width: 300px; height: 100px;">
-        cor: {{cor}} <br>
-        coordenada x: {{x}} <br>
-        coordenada y: {{y}} <br>
-    </div>
-    <hr>
-    <div @click="mudarcor('verde')" style="border: 1px solid black; width: 100px; height: 100px; display: inline-block;"></div>
-    <div @mouseover="mudarcor('amarelo')" style="border: 1px solid black; width: 100px; height: 100px;display: inline-block;"></div>
-    <div @mousemove="posicao($event)" style="border: 1px solid black; width: 100px; height: 100px;display: inline-block;"></div>
+        <div id="datas" style="border: 1px solid black; width: 300px; height: 100px;">
+            cor: Amarela<br>
+            coordenada x: 45 <br>
+            coordenada y: 678 <br>
+        </div>
+        <a id="linkgoogle" target="_blank" v-on:click.prevent="acaodeclick($event)" href="https://google.com.br">google</a>
+        <hr>
+
+        <input type="text" name="" id="nome">
+        <input type="button" @click="printdata()">ver info</input>
+
+       
     </div>
 
     <script>
         const vm = new Vue(
             {
                 el: '#show',
-                data: {
-                   x: 0,
-                   y: 0,
-                   cor: 'branca'
-                },
+                data: {},
 
                 methods:{
-
-                   mudarcor(cor){
-                        this.cor = cor;
-                   },
-
-                   posicao(e){
-                        this.x = e.clientX;
-                        this.y = e.clientY;
-                   }
+                    printdata: function printdata (){
+                        console.log(datas);
+                        console.log(linkgoogle);
+                        console.log(nome);
+                    }
+                  
                 }
             }
         )
