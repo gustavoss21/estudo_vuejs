@@ -10,17 +10,7 @@
 </head>
 <body>
     <div id="show">
-        <input type="text" name="" @blur="definenota($event)">
-        <button @click="nota_show = true" v-if="!nota_show" type="button">mostrar nota</button>
-        <button @click="nota_show = false" v-else type="button">ocultar nota</button>
-        <div v-show="nota_show">
-            <p v-if="nota>=7">aluno aprovado</p>
-            <p v-else-if="nota<7 && nota>5">aluno em recupeção</p>
-            <p v-else-if="nota<5">aluno reprovado</p>
-            <p v-else>informe uma nota válida</p>
-        <hr>  
-
-        </div>
+        <div v-html="show_html"></div>
 
              
     </div>
@@ -30,18 +20,10 @@
             {
                 el: '#show',
                 data: {
-                    nota_show:false,
-                    nota:'A'
+                   show_html: '<p>frase de teste<b>do gustavo</b></p>'
                 },
 
-                methods:{
-                    definenota (e){
-                        this.nota = e.target.value 
-                        console.log(this.nota)
-
-                    }
-                  
-                }
+                methods:{}
             }
         )
     </script>
