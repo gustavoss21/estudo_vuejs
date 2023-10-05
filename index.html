@@ -10,30 +10,10 @@
 </head>
 <body>
     <div id="show">
-        {{showelementes}}
-        <div>
-            <input type="text" name="" id="" v-model="showelementes"><br>
-            <input type="checkbox" value="2" id="" v-model="checkbox">armario
-            <input type="checkbox" value="3" id="" v-model="checkbox">cama
-            <input type="checkbox" value="1" v-model="checkbox">pia
-            {{checkbox}}
-            <br>
-            <input type="radio" value="a" v-model="radio" id="">parede
-            <input type="radio" value="ab" v-model="radio" id="">chao
-            <input type="radio" value="ac" v-model="radio" id="">porta
-            {{radio}}
-            <br>
-            <select name="objeto" id="" v-model="select">
-                <option disabled>opçoes</option>
-                <option value="a">mar</option>
-                <option value="b">peixe</option>
-                <option value="c">sereia</option>
-            </select>
-            {{select}}
-            <br>
-            <textarea v-model="textarea"></textarea>
-            {{textarea}}
-        </div>
+        <input type="text" v-model="update">
+        <ul>
+            <li v-for="nome in nome_match">{{nome}}</li>
+        </ul>
     </div>
 
     <script>
@@ -41,16 +21,22 @@
             {
                 el: '#show',
                 data: {
-                   showelementes: 'frase de teste do gustavo',
-                   checkbox:[],
-                   radio:'',
-                   select:'',
-                   textarea:''
+                    update:'',
+                    lista_de_nomes: ['maria','carlinho','mariano','marcos'],
+                    nome_match:[]
                 },
 
                 methods:{},
 
-                computed:{}
+                computed:{},
+
+                watch:{
+                    update(antigo_valor,novo_valor){
+                        console.log(antigo_valor,novo_valor)
+                        this.nome_match = this.lista_de_nomes.filter(nome => nome.match(novo_valor));
+                    }
+                }
+
             }
         )
     </script>
