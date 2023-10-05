@@ -10,10 +10,7 @@
 </head>
 <body>
     <div id="show">
-        <div v-html="show_html"></div>
-        <div v-text="show_text"></div>
-
-             
+        <div>{{showelementes}}</div>
     </div>
 
     <script>
@@ -25,7 +22,13 @@
                    show_text: 'frase de teste do gustavo'
                 },
 
-                methods:{}
+                methods:{},
+
+                computed:{
+                    showelementes(){
+                        return this.show_html + this.show_text
+                    }
+                }
             }
         )
     </script>
